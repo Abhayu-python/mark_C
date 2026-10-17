@@ -5,7 +5,6 @@ import { FloatingNav } from './components/FloatingNav';
 import { ParallaxHero } from './components/ParallaxHero';
 import { SummarySection } from './components/SummarySection';
 import { CollectionSection } from './components/CollectionSection';
-import { WorldExplorer } from './components/WorldExplorer';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CharacterModal } from './components/CharacterModal';
@@ -97,16 +96,9 @@ export const App: React.FC = () => {
     }
   };
 
-  const handleOpenCharacterByName = (name: string) => {
-    const found = CHARACTERS_DATA.find((c) => c.name.toLowerCase().includes(name.toLowerCase()) || name.toLowerCase().includes(c.name.toLowerCase()));
-    if (found) {
-      setSelectedCharacter(found);
-    }
-  };
-
   // Scroll spy for active navbar section
   useEffect(() => {
-    const sectionIds = ['intro', 'summary', 'collection', 'explorer', 'contact'];
+    const sectionIds = ['intro', 'summary', 'collection', 'contact'];
     
     const handleScroll = () => {
       const scrollY = window.scrollY + 250;
@@ -177,7 +169,6 @@ export const App: React.FC = () => {
           mood={mood}
           featuredCharacters={CHARACTERS_DATA}
           onExplore={() => handleNavigate('collection')}
-          onDiscoverWorld={() => handleNavigate('explorer')}
           onSelectCharacter={(char) => setSelectedCharacter(char)}
         />
 
@@ -190,13 +181,6 @@ export const App: React.FC = () => {
           favorites={favorites}
           onToggleFavorite={handleToggleFavorite}
           onSelectCharacter={(char) => setSelectedCharacter(char)}
-        />
-
-        {/* Interactive World Explorer Panorama */}
-        <WorldExplorer
-          mood={mood}
-          onSelectMood={(newMood) => setMood(newMood)}
-          onOpenCharacterByName={handleOpenCharacterByName}
         />
 
         {/* Contact Section & Social Media */}

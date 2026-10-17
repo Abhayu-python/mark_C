@@ -23,8 +23,7 @@ const NAV_ITEMS: NavItem[] = [
   { id: 'intro', label: 'INTRO', number: '01' },
   { id: 'summary', label: 'SUMMARY', number: '02' },
   { id: 'collection', label: 'LIST', number: '03' },
-  { id: 'explorer', label: 'WORLD', number: '04' },
-  { id: 'contact', label: 'CONTACT', number: '05' },
+  { id: 'contact', label: 'CONTACT', number: '04' },
 ];
 
 export const FloatingNav: React.FC<FloatingNavProps> = ({
